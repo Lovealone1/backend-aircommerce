@@ -31,7 +31,7 @@ app.use(bodyparser.json({limit: '50mb', extended: true}));
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://dan:admin123@cluster0.ktrer9z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+    await mongoose.connect(process.env.MONGODB_URL)
     console.log('MongoDB connected');
   } catch (error) {
     console.log(error);
